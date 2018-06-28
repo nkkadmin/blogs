@@ -1,0 +1,28 @@
+package com.waylau.spring.boot.config;
+
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+
+/**
+ * 安全配置类
+ * @author xsx
+ *
+ */
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+			.antMatchers("/css/**","/js/**","/fonts/**","/index").permitAll() //都可以访问
+			.antMatchers("/users/**").hasRole("ADMIN")
+			.and()
+			.formLogin()  //基于Form表单登录验证
+			.loginPage("/login").failureUrl("/login-error"); //自定义登录页面
+		
+		super.configure(http);
+	}
+
+	 
+
+}

@@ -1,0 +1,12 @@
+package com.xsx.spring.boot.blog.initialozrstart;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class InitialozrStartApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(InitialozrStartApplication.class, args);
+	}
+}

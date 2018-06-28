@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title th:text="${userModel.title}">users : View</title>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}">...</div>
+	<h1 th:text="${userModel.title}">this is title</h1>
+	<form action="/users/saveOrUpdateUser" th:action="@{/users/saveOrUpdateUser}" method="POST">
+		<input type="hidden" name="id"/>
+		NAME:<br/>
+		<input type="text" name="name"/>
+		AGE:<br/>
+		<input type="text" name="age"/>
+		<input type="submit" value="�ύ"/>
+	</form>
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>

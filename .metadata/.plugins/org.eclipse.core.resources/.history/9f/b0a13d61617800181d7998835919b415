@@ -1,0 +1,16 @@
+package com.waylau.spring.boot.config;
+
+import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+
+/**
+ * 安全配置类
+ * @author xsx
+ *
+ */
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	 
+
+}

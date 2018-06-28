@@ -1,0 +1,5 @@
+package com.waylau.spring.boot.thymeleaf.controller.es;
+
+public class BlogController {
+
+}

@@ -1,0 +1,53 @@
+package com.waylau.spring.boot.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;  
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;  
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;  
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;  
+
+
+/**
+ * 安全配置类
+ * @author xsx
+ *
+ */
+@Configuration
+@EnableWebSecurity 
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	
+	/**
+	 * 自定义配置
+	 */
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		/*http.authorizeRequests()
+			.antMatchers("/index").permitAll() //都可以访问
+			.anyRequest().authenticated()
+			.antMatchers("/users/**").hasRole("ADMIN")
+			.and()
+			.formLogin()  //基于Form表单登录验证
+			.loginPage("/login").failureUrl("/login-error"); //自定义登录页面
+*/	
+		  // 所有请求均可访问
+        http.authorizeRequests()
+                .antMatchers("/", "/login", "/login-error", "/css/**", "/index")
+                .permitAll();
+	}
+	
+	/**
+	 * 认证信息管理
+	 * @param auth
+	 * @throws Exception
+	 */
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+		/*auth.inMemoryAuthentication() //认证信息存储在内存中
+			.withUser("xsx").password("123456").roles("ADMIN");*/
+	}
+
+	 
+
+}

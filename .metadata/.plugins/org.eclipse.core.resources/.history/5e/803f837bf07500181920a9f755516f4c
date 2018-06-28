@@ -1,0 +1,49 @@
+package com.xsx.spring.boot.blog.repository;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
+
+import com.xsx.spring.boot.blog.domain.User;
+
+public class UserRepositoryImpl implements UserRepository {
+
+	private static AtomicLong counter = new AtomicLong();
+	private final ConcurrentMap<Long, User> userMap = new ConcurrentHashMap<>();
+	
+	@Override
+	public User saveOrUpdate(User user) {
+		if(user.getId() != null) {
+			userMap.put(user.getId(), user);
+		}else {
+			user.setId(counter.incrementAndGet());
+			userMap.put(user.getId(), user);
+		}
+		return user;
+	}
+
+	@Override
+	public void delete(Long id) {
+		userMap.remove(id);
+	}
+
+	@Override
+	public User getUserById(Long id) {
+		return userMap.get(id);
+	}
+
+	@Override
+	public List<User> listAll() {
+		List<User> list = new ArrayList<>();
+		userMap.forEach(user->{
+			
+		});
+		return ;
+	}
+
+}

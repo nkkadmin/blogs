@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+	<div class="container blog-content-container">
+		<h1 th:text="${userModel.title}">这是标题</h1>
+		<div>
+			<a class="btn btn-default" href="/users/form" th:href="@{/users/form}">创建用户</a>
+		</div>
+		<table class="table table-striped">
+			<tr>
+				<td>ID</td>
+				<td>NAME</td>
+				<td>EMAIL</td>
+				<td>操作</td>
+			</tr>
+			<tr th:if="${userModel.userList.size()} eq 0">
+				<td colspan="4">user list is null</td>
+			</tr>
+			<tr th:each="user : ${userModel.userList}">
+				<td th:text="${user.id}">1</td>
+				<td th:text="${user.name}">xsx</td>
+				<td th:text="${user.age}">asdasdas@163.com</td>
+				<td><a th:href="@{'/users/'+${user.id}}">查询</a> | <a
+					th:href="@{'/users/modify/'+${user.id}}">修改</a> | <a
+					th:href="@{'/users/delete/'+${user.id}}">删除</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>

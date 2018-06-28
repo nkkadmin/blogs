@@ -1,0 +1,5 @@
+package com.xsx.spring.boot.blog.repository;
+
+public interface UserRepository {
+
+}

@@ -1,0 +1,5 @@
+package com.waylau.spring.boot.thymeleaf.domain.es;
+
+public class EsBlog {
+
+}

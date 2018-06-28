@@ -1,0 +1,5 @@
+package com.xsx.spring.boot.blog.controller;
+
+public class UserController {
+
+}

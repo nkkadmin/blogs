@@ -1,0 +1,15 @@
+package com.xsx.spring.boot.blog.repository;
+
+import com.xsx.spring.boot.blog.domain.User;
+
+public interface UserRepository {
+	
+	User saveOrUpdate(User user);
+	
+	void delete(Long id);
+	
+	User getUserById(Long id);
+	
+	List<User> listAll();
+
+}

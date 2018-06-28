@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:fragment="header">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf in action</title>
+   	<!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="blog-masthead">
+	    <div class="container">
+	    <div class="row" >
+	 		<h1>Bootstrap in action</h1>
+	 
+	        <nav class="nav blog-nav">
+	          <a class="nav-link active" href="/users">首页</a>
+	          <a class="nav-link" href="/users">其他</a>
+	        </nav>
+		</div>
+	    </div><!-- /.container -->
+    </div>
+</body>
+</html>

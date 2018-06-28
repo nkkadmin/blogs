@@ -1,0 +1,43 @@
+package com.xsx.spring.boot.blog.repository;
+
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
+
+import com.xsx.spring.boot.blog.domain.User;
+
+public class UserRepositoryImpl implements UserRepository {
+
+	private static AtomicLong counter = new AtomicLong();
+	private final ConcurrentMap<Long, User> userMap = new ConcurrentHashMap<>();
+	
+	@Override
+	public User saveOrUpdate(User user) {
+		if(user.getId() != null) {
+			userMap.put(user.getId(), user);
+		}else {
+			user.setId(counter.get());
+			userMap.put(user.getId(), user);
+		}
+		return user;
+	}
+
+	@Override
+	public void delete(Long id) {
+		userMap.remove(id);
+	}
+
+	@Override
+	public User getUserById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> listAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

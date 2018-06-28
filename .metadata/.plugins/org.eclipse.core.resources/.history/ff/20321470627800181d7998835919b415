@@ -1,0 +1,5 @@
+package com.waylau.spring.boot.thymeleaf.controller;
+
+public class MainController {
+
+}

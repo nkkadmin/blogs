@@ -1,0 +1,27 @@
+package com.waylau.spring.boot.thymeleaf.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * 主页控制器
+ * @author xsx
+ *
+ */
+@Controller
+@RequestMapping("/main")
+public class MainController {
+
+	@GetMapping("/")
+	public String root() {
+		return "redirect:/index";
+	}
+	
+	@GetMapping("/index")
+	public String index() {
+		return "index";
+	}
+	
+	
+	
+}

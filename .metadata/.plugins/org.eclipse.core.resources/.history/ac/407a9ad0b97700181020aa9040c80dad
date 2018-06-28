@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+	<div class="container blog-content-container">
+		<h1 th:text="${userModel.title}">这是标题</h1>
+		<table border="1">
+			<tr>
+				<td>ID</td>
+				<td th:text="${userModel.user.id}">1</td>
+			</tr>
+			<tr>
+				<td>NAME</td>
+				<td th:text="${userModel.user.name}">1</td>
+			</tr>
+			<tr>
+				<td>AGE</td>
+				<td th:text="${userModel.user.age}">1</td>
+			</tr>
+		</table>
+	</div>
+	<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>

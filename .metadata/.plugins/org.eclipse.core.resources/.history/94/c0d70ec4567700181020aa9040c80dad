@@ -1,0 +1,11 @@
+package com.waylau.spring.boot.thymeleaf.repository.es;
+
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+import com.waylau.spring.boot.thymeleaf.domain.es.EsBlog;
+
+public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, String> {
+
+	
+	
+}
